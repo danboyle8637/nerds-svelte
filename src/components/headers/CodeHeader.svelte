@@ -1,30 +1,17 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-
 	import type { HeaderLevel } from '../../types/components';
 
 	export let headerLevel: HeaderLevel;
 	export let textTransform: 'uppercase' | 'unset' = 'unset';
-	export let width: number = 0;
-
-	let container: HTMLDivElement;
-
-	onMount(() => {
-		if (width && width > 0) {
-			container.style.width = `${width}px`;
-		}
-
-		return () => {};
-	});
 </script>
 
-<div class="container" bind:this={container}>
+<div class="container">
 	{#if headerLevel === 'h1'}
 		<h1 style={`text-transform: ${textTransform}`}>
 			~ <slot />
 		</h1>
 	{:else if headerLevel === 'h2'}
-		<h2>
+		<h2 style={`text-transform: ${textTransform}`}>
 			~ <slot />
 		</h2>
 	{:else if headerLevel === 'h3'}
@@ -45,11 +32,11 @@
 
 <style>
 	.container {
-		padding: 10px 40px;
+		padding: 14px 40px 14px 20px;
 		display: grid;
 		grid-template-columns: 1fr min-content;
 		align-items: center;
-		gap: 24px;
+		gap: 16px;
 		background-color: hsla(216, 37%, 11%, 0.4);
 		border-radius: 12px;
 		width: fit-content;
@@ -58,9 +45,40 @@
 	.cursor {
 		background-color: var(--cursor-color, var(--accent-blue));
 		border-radius: 20px;
-		width: 8px;
-		height: 60px;
+		width: 6px;
+		height: 30px;
 		animation: cursorBlink 800ms ease-in-out infinite alternate;
+	}
+
+	@media (min-width: 392px) {
+		.cursor {
+			height: 40px;
+		}
+	}
+
+	@media (min-width: 600px) {
+		.cursor {
+			height: 50px;
+			width: 8px;
+		}
+
+		.container {
+			padding: 10px 60px 10px 40px;
+			gap: 24px;
+		}
+	}
+
+	@media (min-width: 960px) {
+		.cursor {
+			height: 70px;
+			width: 10px;
+		}
+	}
+
+	@media (min-width: 1100px) {
+		.cursor {
+			height: 80px;
+		}
 	}
 
 	@keyframes cursorBlink {

@@ -1,8 +1,8 @@
 <script lang="ts">
-	export let handleToggleOverlay: () => void;
+	export let handleClick: () => void;
 </script>
 
-<button type="button" on:click={handleToggleOverlay}>
+<button type="button" on:click={handleClick}>
 	<div class="icon" />
 	<slot />
 </button>

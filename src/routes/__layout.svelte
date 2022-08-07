@@ -2,4 +2,12 @@
 	import global from '../styles/global.css';
 </script>
 
-<slot />
+<div>
+	<slot />
+</div>
+
+<style>
+	div {
+		overflow: hidden;
+	}
+</style>
