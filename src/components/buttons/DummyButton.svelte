@@ -1,7 +1,5 @@
 <script lang="ts">
 	export let isHovering: boolean;
-
-	console.log(isHovering);
 </script>
 
 <div>
@@ -20,11 +18,12 @@
 		font-size: 2.1rem;
 		color: var(--dark-font-color);
 		font-weight: 700;
-		background-color: var(--accent-blue);
+		background-color: var(--button-color, var(--accent-blue));
+		border: none;
 		border-radius: 12px;
 		width: 100%;
 		height: 54px;
-		box-shadow: 0 0 0 3px var(--dark-body), 0 0 0 6px var(--accent-pink);
+		cursor: pointer;
 	}
 
 	.icon {

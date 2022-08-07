@@ -1,25 +1,20 @@
 <script lang="ts">
 	import CardContent from './CardContent.svelte';
-	import DummyButton from '../../buttons/DummyButton.svelte';
+	import SimpleButon from '../../buttons/SimpleButton.svelte';
 
 	export let image: string;
 	export let alt: string;
 	export let title: string;
 	export let headline: string;
 	export let description: string;
+	// export let flip: boolean
 
-	let isHovering: boolean = false;
-
-	const toggleHovering = () => {
-		isHovering = !isHovering;
-	};
-
-	const cardFocus = () => {
-		console.log('Focused');
+	const handleButtonClick = () => {
+		console.log('Navigate to the correct page');
 	};
 </script>
 
-<div class="card" on:mouseover={toggleHovering} on:mouseleave={toggleHovering} on:focus={cardFocus}>
+<div class="card">
 	<img src={image} {alt} {title} />
 	<div class="content-container">
 		<CardContent>
@@ -27,7 +22,7 @@
 			<span slot="description">{description}</span>
 		</CardContent>
 		<div class="button-container">
-			<DummyButton {isHovering}>Learn More</DummyButton>
+			<SimpleButon handleClick={handleButtonClick}>Learn More...</SimpleButon>
 		</div>
 	</div>
 </div>
@@ -39,7 +34,6 @@
 		grid-auto-rows: min-content;
 		gap: 20px;
 		width: 100%;
-		border: 1px solid red;
 	}
 
 	img {
@@ -53,7 +47,6 @@
 		grid-auto-rows: min-content;
 		gap: 20px;
 		justify-items: end;
-		pointer-events: none;
 	}
 
 	.button-container {
