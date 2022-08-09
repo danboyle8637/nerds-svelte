@@ -1,5 +1,19 @@
+<script lang="ts">
+	export let isHovering: boolean;
+
+	// hsla(271, 90%, 10%, 1)
+</script>
+
 <div class="container">
-	<div class="headline-container">
+	<div
+		class="headline-container"
+		style:--headline-container-background={isHovering
+			? "hsla(271, 100%, 46%, 0.4)"
+			: "hsla(216, 37%, 11%, 0.4)"}
+		style:--headline-container-transform={isHovering
+			? "translateY(-4px) scale(1.04)"
+			: "translateY(0) scale(1)"}
+	>
 		<p class="headline">
 			~ <slot name="headline" />
 		</p>
@@ -20,9 +34,11 @@
 
 	.headline-container {
 		padding: 12px 30px 12px 20px;
-		background-color: hsla(216, 37%, 11%, 0.4);
+		background-color: var(--headline-container-background);
 		border-radius: 12px;
 		width: fit-content;
+		transform: var(--headline-container-transform);
+		transition: background-color, transform, box-shadow, 300ms ease-in-out;
 	}
 
 	.headline {

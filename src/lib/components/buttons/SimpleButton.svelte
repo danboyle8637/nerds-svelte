@@ -1,13 +1,14 @@
 <script lang="ts">
+	export let buttonTitle: string;
 	export let handleClick: () => void;
 </script>
 
-<button type="button" on:click={handleClick}>
+<button type="button" title={buttonTitle} on:click={handleClick}>
 	<div class="icon" />
 	<slot />
 </button>
 
-<style>
+<style lang="scss">
 	button {
 		padding: 0 20px;
 		display: grid;
@@ -24,12 +25,12 @@
 		width: 290px;
 		height: 60px;
 		cursor: pointer;
-	}
 
-	button:focus {
-	}
+		&:focus {
+		}
 
-	button:hover {
+		&:hover {
+		}
 	}
 
 	.icon {

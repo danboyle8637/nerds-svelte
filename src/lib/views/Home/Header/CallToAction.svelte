@@ -1,8 +1,8 @@
 <script>
-	import SimpleButton from '../../../components/buttons/SimpleButton.svelte';
+	import SimpleButton from "$lib/components/buttons/SimpleButton.svelte";
 
 	const handleToggleOverlay = () => {
-		console.log('Button clicked');
+		console.log("Button clicked");
 	};
 </script>
 
@@ -12,7 +12,8 @@
 		<span>Your</span>
 		<span>Website</span>
 	</h1>
-	<SimpleButton {handleToggleOverlay}>Yeah! Let's Talk</SimpleButton>
+	<SimpleButton buttonTitle="Title" handleClick={handleToggleOverlay}>Yeah! Let's Talk</SimpleButton
+	>
 </div>
 
 <style>

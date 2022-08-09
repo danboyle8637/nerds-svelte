@@ -1,24 +1,24 @@
 <script lang="ts">
-	import type { HeaderLevel } from '../../types/components';
+	import type { HeaderLevel } from "$lib/types/components";
 
 	export let headerLevel: HeaderLevel;
-	export let textTransform: 'uppercase' | 'unset' = 'unset';
+	export let textTransform: "uppercase" | "unset" = "unset";
 </script>
 
 <div class="container">
-	{#if headerLevel === 'h1'}
+	{#if headerLevel === "h1"}
 		<h1 style={`text-transform: ${textTransform}`}>
 			~ <slot />
 		</h1>
-	{:else if headerLevel === 'h2'}
+	{:else if headerLevel === "h2"}
 		<h2 style={`text-transform: ${textTransform}`}>
 			~ <slot />
 		</h2>
-	{:else if headerLevel === 'h3'}
+	{:else if headerLevel === "h3"}
 		<h3>
 			~ <slot />
 		</h3>
-	{:else if headerLevel === 'h4'}
+	{:else if headerLevel === "h4"}
 		<h4>
 			~ <slot />
 		</h4>
